@@ -46,13 +46,12 @@ class Cachorro:
         return f"{self.id_cachorro} - {self.nome} - {self.foto} - {self.pelagem} - {self.raca} - {self.data_nascimento} - {self.carteira_vacina} - {self.porte} - {self.alergia} - {self.castrado} - {self.tutor.nome}"
 
 class Medicacao:
-    def __init__(self, id_cachorro, nome_medicacao, qtd, data_medicacao, horario_medicacao, senha):
+    def __init__(self, id_cachorro, nome_medicacao, qtd, data_medicacao, horario_medicacao):
         self.id_cachorro = id_cachorro
         self.nome_medicacao = nome_medicacao
         self.qtd = qtd
         self.data_medicacao = data_medicacao
         self.horario_medicacao = horario_medicacao
-        self.senha = senha
 
     def registrar_medicacao(self):
         print(f'Medicação: ({self.nome_medicacao}) | Quantidade: ({self.qtd}) | Registrada para o Cachorro ({self.id_cachorro})\nÀs {self.horario_medicacao} de {self.data_medicacao}.')

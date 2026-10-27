@@ -1,21 +1,23 @@
 class Pessoa:
-    lista_clientes = []
     def __init__(self, nome, email, telefone):
         self.nome = nome
         self.email = email
         self.telefone = telefone
 
 class Tutor(Pessoa):
+    lista_tutores = []
     def __init__(self, nome, email, telefone, cpf, endereco):
         super().__init__(nome, email, telefone)
         self.cpf = cpf
         self.endereco = endereco
+        Tutor.lista_tutores.append(self)
     def exibir_dados(self):
         print(
             f"Tutor: {self.nome} | E-mail: {self.email} | "
             f"Telefone: {self.telefone} | CPF: {self.cpf} | "
             f"Endereço: {self.endereco}"
         )
+    
 
 class Administrador(Pessoa):
     def __init__(self, nome, email, telefone, senha):
@@ -33,7 +35,7 @@ class Recepcionista(Pessoa):
         self.senha = senha
 
 class Cachorro:
-    def __init__(self, id_cachorro, nome, foto, pelagem, raca, data_nascimento, carteira_vacina, porte, alergia, castrado, tutor, data_matricula, tipo_mensalidade):
+    def __init__(self, id_cachorro, nome, foto, pelagem, raca, data_nascimento, carteira_vacina, porte, alergia, castrado, cpf, data_matricula, tipo_mensalidade):
         self.id_cachorro = id_cachorro
         self.nome = nome
         self.foto = foto
@@ -44,7 +46,7 @@ class Cachorro:
         self.porte = porte
         self.alergia = alergia
         self.castrado = castrado
-        self.tutor = tutor
+        self.tutor = next((t for t in Tutor.lista_tutores if t.cpf == cpf), None)
         self.data_matricula = data_matricula
         self.tipoMensalidade = tipo_mensalidade
 
@@ -101,7 +103,7 @@ class Pagamento:
         print(f'{self.status}!\nCPF: ({self.cpf}) | ID Cachorro ({self.id_cachorro})\nPlano ({self.tipo_plano}) | Valor: R${self.valor}\nMétodo de Pagamento: {self.tipo_pagamento} | Data ({self.data_pagamento}).')
 
 t = Tutor('Giovana', 'giovana@nome', '19999999999', '12345677','rua')
-c = Cachorro(1, 'Pandora', '', 'preto', 'vira-lata', '07-08-2020', '', 'pequeno', 'cenoura', True, t, '23/10/2026', 'Mensal')
+c = Cachorro(1, 'Pandora', '', 'preto', 'vira-lata', '07-08-2020', '', 'pequeno', 'cenoura', True, '12345677', '23/10/2026', 'Mensal')
 
 remedio1 = Medicacao('1', 'Vermífugo','1 comprimido', '23/10/2026', '16:12')
 remedio1.registrar_medicacao()

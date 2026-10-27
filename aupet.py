@@ -62,7 +62,7 @@ class Medicacao:
         self.horario_medicacao = horario_medicacao
 
     def registrar_medicacao(self):
-        print(f'Medicação: ({self.nome_medicacao}) | Quantidade: ({self.qtd}) | Registrada para o Cachorro ({self.id_cachorro})\nÀs {self.horario_medicacao} de {self.data_medicacao}.')
+        return f'Medicação: ({self.nome_medicacao}) | Quantidade: ({self.qtd}) | Registrada para o Cachorro ({self.id_cachorro})\nÀs {self.horario_medicacao} de {self.data_medicacao}.'
     
 class Estadia:
     def __init__(self, cpf, id_cachorro, periodo_hospedagem, status_pagamento='Pendente'):
@@ -106,7 +106,7 @@ t = Tutor('Giovana', 'giovana@nome', '19999999999', '12345677','rua')
 c = Cachorro(1, 'Pandora', '', 'preto', 'vira-lata', '07-08-2020', '', 'pequeno', 'cenoura', True, '12345677', '23/10/2026', 'Mensal')
 
 remedio1 = Medicacao('1', 'Vermífugo','1 comprimido', '23/10/2026', '16:12')
-remedio1.registrar_medicacao()
+print(remedio1.registrar_medicacao())
 
 hospedagem1 = Estadia('123.456.789-00', 1, '23/10 a 28/10')
 hospedagem1.registrar_pagamento()

@@ -103,7 +103,7 @@ class Pagamento:
 t = Tutor('Giovana', 'giovana@nome', '19999999999', '12345677','rua')
 c = Cachorro(1, 'Pandora', '', 'preto', 'vira-lata', '07-08-2020', '', 'pequeno', 'cenoura', True, t, '23/10/2026', 'Mensal')
 
-remedio1 = Medicacao('1', 'Vermífugo','1 comprimido', '23/10/2026', '16:12','123')
+remedio1 = Medicacao('1', 'Vermífugo','1 comprimido', '23/10/2026', '16:12')
 remedio1.registrar_medicacao()
 
 hospedagem1 = Estadia('123.456.789-00', 1, '23/10 a 28/10')

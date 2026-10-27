@@ -62,7 +62,7 @@ class Medicacao:
         self.horario_medicacao = horario_medicacao
 
     def registrar_medicacao(self):
-        return f'Medicação: ({self.nome_medicacao}) | Quantidade: ({self.qtd}) | Registrada para o Cachorro ({self.id_cachorro})\nÀs {self.horario_medicacao} de {self.data_medicacao}.'
+        print(f'Medicação: ({self.nome_medicacao}) | Quantidade: ({self.qtd}) | Registrada para o Cachorro ({self.id_cachorro})\nÀs {self.horario_medicacao} de {self.data_medicacao}.')
     
 class Estadia:
     def __init__(self, cpf, id_cachorro, periodo_hospedagem, status_pagamento='Pendente'):
@@ -74,7 +74,7 @@ class Estadia:
 
     def registrar_pagamento(self):
         self.status_pagamento='Pago'
-        return f'CPF do Tutor ({self.cpf}) | ID do Cachorro ({self.id_cachorro})\nPeriodo da Hospedagem ({self.periodo_hospedagem})\nStatus do Pagamento ({self.status_pagamento}).')
+        print(f'CPF do Tutor ({self.cpf}) | ID do Cachorro ({self.id_cachorro})\nPeriodo da Hospedagem ({self.periodo_hospedagem})\nStatus do Pagamento ({self.status_pagamento}).')
 
 class Frequencia:
     def __init__(self, id_cachorro, data, horario_entrada, horario_saida):
@@ -84,7 +84,7 @@ class Frequencia:
         self.horario_saida = horario_saida
 
     def registrar_frequencia(self):
-        return f'ID Cachorro ({self.id_cachorro}) | Data ({self.data})\nHorários: Entrada ({self.horario_entrada}) | Saída ({self.horario_saida})')
+        print(f'ID Cachorro ({self.id_cachorro}) | Data ({self.data})\nHorários: Entrada ({self.horario_entrada}) | Saída ({self.horario_saida})')
 
 class Pagamento:
     def __init__(self, cpf, id_cachorro, tipo_plano, valor, tipo_pagamento, data_pagamento, status='Pendente'):
@@ -100,20 +100,20 @@ class Pagamento:
         self.status = 'Confirmado'
 
     def historico_pagamento(self):
-        return f'{self.status}!\nCPF: ({self.cpf}) | ID Cachorro ({self.id_cachorro})\nPlano ({self.tipo_plano}) | Valor: R${self.valor}\nMétodo de Pagamento: {self.tipo_pagamento} | Data ({self.data_pagamento}).')
+        print(f'{self.status}!\nCPF: ({self.cpf}) | ID Cachorro ({self.id_cachorro})\nPlano ({self.tipo_plano}) | Valor: R${self.valor}\nMétodo de Pagamento: {self.tipo_pagamento} | Data ({self.data_pagamento}).')
 
 t = Tutor('Giovana', 'giovana@nome', '19999999999', '12345677','rua')
 c = Cachorro(1, 'Pandora', '', 'preto', 'vira-lata', '07-08-2020', '', 'pequeno', 'cenoura', True, '12345677', '23/10/2026', 'Mensal')
 
 remedio1 = Medicacao('1', 'Vermífugo','1 comprimido', '23/10/2026', '16:12')
-print(remedio1.registrar_medicacao())
+remedio1.registrar_medicacao()
 
 hospedagem1 = Estadia('123.456.789-00', 1, '23/10 a 28/10')
-print(registrar_pagamento())
+hospedagem1.registrar_pagamento()
 pagamento1 = Pagamento('123.456.789-00', '1', 'Mensalidade Creche', 250.00, 'PIX', '23/10/2026')
 print('Antes do Pagamento')
-print(historico_pagamento())
+pagamento1.historico_pagamento()
 print('\nDepois do Pagamento')
-print(historico_pagamento())
+pagamento1.historico_pagamento()
 
 print(c.tutor.nome)

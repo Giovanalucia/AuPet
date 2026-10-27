@@ -10,6 +10,12 @@ class Tutor(Pessoa):
         super().__init__(nome, email, telefone)
         self.cpf = cpf
         self.endereco = endereco
+    def exibir_dados(self):
+        print(
+            f"Tutor: {self.nome} | E-mail: {self.email} | "
+            f"Telefone: {self.telefone} | CPF: {self.cpf} | "
+            f"Endereço: {self.endereco}"
+        )
 
 class Administrador(Pessoa):
     def __init__(self, nome, email, telefone, senha):
